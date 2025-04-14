@@ -55,12 +55,26 @@ VALUES ('Ficção Científica', 'Livros que exploram conceitos científicos avan
 INSERT INTO categorias (nome, descricao)
 VALUES ('Romance', 'Narrativas centradas em relações amorosas');
 
+INSERT INTO categorias (nome, descricao)
+VALUES ('Fantasia', 'Livros ambientados em mundos imaginários com elementos mágicos');
+
+INSERT INTO categorias (nome, descricao)
+VALUES ('Suspense e Mistério', 'Narrativas que envolvem enigmas e investigações, mantendo o leitor em constante expectativa');
+
+
 -- Inserindo livros
 INSERT INTO livros (titulo, isbn, ano, categoria_id)
 VALUES ('Fundação', '9788576572664', 1951, 1);
 
 INSERT INTO livros (titulo, isbn, ano, categoria_id)
 VALUES ('Orgulho e Preconceito', '9788544001820', 1813, 2);
+
+INSERT INTO livros (titulo, isbn, ano, categoria_id)
+VALUES ('O Nome do Vento', '9788578270696', 2007, 3);
+
+INSERT INTO livros (titulo, isbn, ano, categoria_id)
+VALUES ('A Paciente Silenciosa', '9788595085635', 2019, 4);
+
 ```
 
 ### READ (R) - SELECT
@@ -90,6 +104,10 @@ Atualização de registros:
 -- Atualizando o ano de um livro
 UPDATE livros
 SET ano = 1952
+WHERE id = 1;
+
+UPDATE livros
+SET titulo = 'Fundação (2025)'
 WHERE id = 1;
 ```
 
@@ -267,6 +285,10 @@ VALUES (1, 'O Senhor dos Anéis', '9780345339706', 1954, 2);
 UPDATE livros 
 SET titulo = 'O Hobbit' 
 WHERE id = 1;
+
+UPDATE livros 
+SET titulo = 'Capítulo final' 
+WHERE id = 7;
 ```
 
 Isso aciona o trigger e insere um novo registro na tabela `log_alteracoes`.
